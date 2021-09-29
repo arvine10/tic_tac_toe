@@ -108,6 +108,7 @@ function restart_game(){
     player2_peice = null;
     draw = false;
     
+    
 }
 
 
@@ -121,7 +122,6 @@ start.addEventListener("click", (e)=>{
     game.style.display = "flex";
     start.style.display = "none";
     restart.style.display = "flex";
-    // pause.style.display = "flex";
     stop.style.display = "flex";
 });
 
@@ -139,10 +139,8 @@ stop.addEventListener("click", (e)=>{
     game.style.display = "none";
     start.style.display = "flex";
     restart.style.display = "none";
-    pause.style.display = "none";
     stop.style.display = "none";
     table.style.display = "none";
-    pause_screen.style.display = "none";
     isPaused = false;
     pause.innerHTML = "pause";
     user.innerHTML = "User-0";

@@ -2,42 +2,32 @@ body{
     height: 100vh;
     width: 100vw;
     margin: 0;
-    animation: myanimation 15s infinite;
+    background: url("https://images.pexels.com/photos/1257860/pexels-photo-1257860.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    box-sizing: border-box;
+
 }
 
-@keyframes myanimation {
-    0% {background-color: purple;}
-    25%{background-color:orange;}
-    50%{background-color:green;}
-    75%{background-color:brown;}
-    100% {background-color: blue;}
-  }
 
+/* fix stop button */
 
 
 
 #container{
-    overflow: hidden;
     width: 100%;
     height: 100%;
-    display: grid;
-    grid-template-rows: 0.5fr 1fr 1fr;
-    grid-template-columns: 0.5fr 1fr 1fr;
-    grid-template-areas: 
-    "title title title"
-    "sidebar game game"
-    "sidebar game game";
-    
-    
-
-
 }
+
+
+
 
 #title{
     display: flex;
-    grid-area: title;
+    
     color: white;
-    margin-bottom: 140px;
+    /* margin-bottom: 140px; */
     /* background-color: turquoise; */
     font-size: 10em;
     
@@ -48,8 +38,8 @@ body{
     grid-area: sidebar;
     /* background-color: violet; */
     display: flex;
-    flex-direction: column;
-    justify-content:center;
+    /* flex-direction: column; */
+    justify-content:space-between;
     align-items: center;
 
     
@@ -58,13 +48,20 @@ body{
 #sidebar button{
     display: block;
     margin-top: 10px;
-    border-radius: 15px;
-    /* width: 60%; */
-    width: 120px;
-    padding: 20px;
+    border-radius: 10px;
+    padding: 12px 24px;
     font-size: 25px;
-    background-color: #111;
+    background-color: transparent;
     color: white;
+    border: 1px solid white;
+    text-align: center;
+}
+
+#hrz_line{
+    width: 100%;
+    height: 3px;
+    background-color: #fff;
+    margin: 10px 0;
 }
 
 
@@ -84,9 +81,6 @@ body{
     background-color: white;
 }
 
-#sidebar #pause{
-    display: none;
-}
 
 #sidebar #stop{
     display: none;
@@ -102,24 +96,26 @@ body{
 
 #sidebar #p1{
     font-size: 3em;
+    color: #fff;
 }
 
 #sidebar #p2{
     font-size: 3em;
+    color: #fff;
 }
 
 #game{
-    grid-area: game;
+    margin-top: 50px;
     /* background-color: tomato; */
     display: flex;
     justify-content: center;
     align-items: center;
     display: none;
+    margin-bottom: 50px;
     
 }
 
 #border_white{
-    grid-area: game;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -145,16 +141,16 @@ body{
 }
 
 .vert {
-    border-left: 2px solid black;
-    border-right: 2px solid black;
+    border-left: 2px solid white;
+    border-right: 2px solid white;
   }
   .hori {
-    border-top: 2px solid black;
-    border-bottom: 2px solid black;
+    border-top: 2px solid white;
+    border-bottom: 2px solid white;
   }
 
 #game table td:hover{
-    background-color: yellow;
+    background-color:paleturquoise;
 }
 
 #game table td:active{
@@ -166,68 +162,81 @@ body{
     display: flex;
     font-size: 60px;
     justify-content: flex-start;
+    color: white;
+    margin-bottom: 30px;
 }
 
-/* #game #divider{
-    display: none;
-} */
+
+#board tr td{
+    color: white;
+}
+
+
 
 
 @media screen and (max-width: 700px){
+
+    #container{
+        overflow:visible;
+    }
+
+
+    #title{
+        font-size: 30px;
+    }
+
+    #sidebar #p1{
+        font-size: 20px;
+    }
+
+
+    #sidebar #p2{
+        font-size: 20px;
+    }
+
+    #sidebar #stop{
+        padding: 10px 10px;
+    }
+
+    #sidebar #restart{
+        padding: 10px 10px;
+    }
+
+    #game #user_select{
+        display: flex;
+        font-size: 30px;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        
+    }
+
+    #game #user_select tr{
+        display: inline;
+    }
+
+
+    #game table td{
+        width: 100px;
+        height: 60px;
+        text-align: center;
+        
+    }
+
+
+    #board{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -10%);
+}
+
+#board tr td{
+    font-size: 40px;
+}
+
+
     
-#container{
-    overflow-y: scroll;
-    width: 100%;
-    height: 100%;
-    display: grid;
-    grid-template-rows: 1fr 1fr 1fr;
-    grid-template-columns: 1f;
-    grid-template-areas: 
-    " title "
-    "sidebar  "
-    " game";
-}
-
-#game #divider{
-    /* border: 2px solid black; */
-    border-top: 5px solid black;
-    
-    width: 100vw;
-}
-
-#sidebar{
-    width: 100%;
-    grid-area: sidebar;
-    display: flex;
-    flex-direction: row;
-    justify-content:space-evenly;
-    align-items: center;
-    
-}
-
-#user_select tr{
-    display: inline;
-}
-
-#title{
-    grid-area: title;
-    text-decoration: none;
-    justify-content: flex-start;
-    align-items: flex-start;
-    margin:0;
-    
-}
-
-#game{
-    grid-area: game;
-    flex-direction: column;
-}
-
-#game #board{
-    width: 38vw;
-
-}
-
 
 
     
