@@ -141,13 +141,8 @@ stop.addEventListener("click", (e)=>{
     restart.style.display = "none";
     stop.style.display = "none";
     table.style.display = "none";
-    isPaused = false;
-    pause.innerHTML = "pause";
     user.innerHTML = "User-0";
     cpu.innerHTML = "CPU-0";
-
-
-
 
 });
 
